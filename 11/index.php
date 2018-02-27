@@ -100,7 +100,7 @@ $studentai = array( array("name"=>"Ignas", "age"=>24),
     array("name"=>"Vilma", "age"=>26),
 );
 ?>
-<?php if (count($studentai) > 0): ?>
+<?php if (count($studentai) > 18): ?>
     <table>
         <thead>
         <tr>
