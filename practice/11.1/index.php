@@ -1,5 +1,6 @@
 <?php
-class Gyvunas {
+class Gyvunas
+{
     public $svoris;
     public $ugis;
 
@@ -16,8 +17,8 @@ class Suo extends Gyvunas
 
     function __construct($svoris, $ugis, $spalva, $lytis){
         parent::__construct($svoris, $ugis);
-        $this->spalva = $spalva;
-        $this->lytis = $lytis;
+        $this->spalva=$spalva;
+        $this->lytis=$lytis;
     }
     function fullInfo(){
         return $this->svoris.' '.$this->ugis.' '.$this->spalva.' '.$this->lytis.' ';
