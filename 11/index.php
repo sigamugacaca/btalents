@@ -93,14 +93,12 @@ echo "Vilma is " . $age['Vilma'] . " years old";
 ?>
 <?php
 $studentai = array( array("name"=>"Ignas", "age"=>24),
-    array("name"=>"Jonas", "age"=>14),
-    array("name"=>"Petras", "age"=>11),
     array("name"=>"Zigmas", "age"=>31),
     array("name"=>"Bronius", "age"=>27),
     array("name"=>"Vilma", "age"=>26),
 );
 ?>
-<?php if (count($studentai) > 18): ?>
+<?php if (count($studentai) > 0): ?>
     <table>
         <thead>
         <tr>
