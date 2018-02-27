@@ -117,5 +117,4 @@ $studentai = array( array("name"=>"Ignas", "age"=>24),
     </table>
 <?php endif; ?>
 
-//end of
 
