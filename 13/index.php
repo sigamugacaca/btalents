@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>Vehicle History</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css">
 </head>
 <body>
 <form id="form" name="form" method="post" action="">
@@ -10,8 +11,14 @@
     <label>Add The Time
         <input type="time" name="time" id="time" value="" />
     </label>
-    <label>Add Plate #
-       <input type="text" name="plate" id="plate" value="" />
+    <label>Add Plate # (Example: ABC 001)
+        <input type="text" name="plate" id="plate" value="" />
+    </label>
+    <label>Distance Traveled (Meters)
+        <input type="number" name="distance" id="distance" value="" />
+    </label>
+    <label>Time Spent (Seconds)
+        <input type="number" name="elapsed" id="elapsed" value="" />
     </label>
     <p>
         <label>Submit Information
@@ -24,8 +31,11 @@
 $date = $_POST["date"];
 $time = $_POST["time"];
 $plate = $_POST["plate"];
+$distance = $_POST["distance"];
+$elapsed = $_POST["elapsed"];
+
 $posts = file_get_contents("posts.txt");
-$posts = "$date $time $plate\n" . $posts;
+$posts = "$date $time $plate $distance $elapsed\n" . $posts;
 file_put_contents("posts.txt", $posts);
 echo $posts;
 
