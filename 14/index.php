@@ -67,6 +67,5 @@ if(isset($_POST['action']) and $_POST['action']=='empty'){
     }
     ?>
 </table>
-
 </body>
 </html>
