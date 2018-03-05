@@ -46,6 +46,7 @@ if(isset($_POST['action']) and $_POST['action']=='empty'){
     fclose($fp);
 }
 ?>
+
 <form action="index.php" method="post">
 
     <input type="hidden" name="action" value="empty">
@@ -62,7 +63,7 @@ if(isset($_POST['action']) and $_POST['action']=='empty'){
         <td>elapsed time</td>
     </tr>
     <?php
-    foreach (filter_list() as $id =>$filter) {
+    foreach (filter_list() as $id =>$posts) {
         echo '<tr><td>' . $date . '</td><td>' . $time . '</td><td>' . $plate . '</td><td>' . $distance . '</td><td>' . $elapsed . '</td></tr>';
     }
     ?>
