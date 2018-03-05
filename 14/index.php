@@ -2,6 +2,7 @@
 <head>
     <title>Vehicle History</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <form id="form" name="form" method="post" action="">
@@ -52,6 +53,20 @@ if(isset($_POST['action']) and $_POST['action']=='empty'){
 
 </form>
 
+<table>
+    <tr>
+        <td>date</td>
+        <td>time</td>
+        <td>plate #</td>
+        <td>distance</td>
+        <td>elapsed time</td>
+    </tr>
+    <?php
+    foreach (filter_list() as $id =>$handle) {
+        echo '<tr><td>' . $date . '' . $time . '' . $plate . '' . $distance . '' . $elapsed . ' </td><td>' . ' </td><td>' . ' </td><td>' . ' </td><td>' . filter_id(posts.txt) . '</td></tr>';
+    }
+    ?>
+</table>
 
 </body>
 </html>
