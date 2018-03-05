@@ -62,8 +62,8 @@ if(isset($_POST['action']) and $_POST['action']=='empty'){
         <td>elapsed time</td>
     </tr>
     <?php
-    foreach (filter_list() as $id =>$handle) {
-        echo '<tr><td>' . $date . '' . $time . '' . $plate . '' . $distance . '' . $elapsed . ' </td><td>' . ' </td><td>' . ' </td><td>' . ' </td><td>' . filter_id(posts.txt) . '</td></tr>';
+    foreach (filter_list() as $id =>$filter) {
+        echo '<tr><td>' . $date . '</td><td>' . $time . '</td><td>' . $plate . '</td><td>' . $distance . '</td><td>' . $elapsed . '</td></tr>';
     }
     ?>
 </table>
