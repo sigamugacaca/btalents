@@ -54,19 +54,26 @@ if(isset($_POST['action']) and $_POST['action']=='empty'){
 
 </form>
 
-<table>
-    <tr>
-        <td>date</td>
-        <td>time</td>
-        <td>plate #</td>
-        <td>distance</td>
-        <td>elapsed time</td>
-    </tr>
     <?php
-    foreach (filter_list() as $id =>$posts) {
+    {
         echo '<tr><td>' . $date . '</td><td>' . $time . '</td><td>' . $plate . '</td><td>' . $distance . '</td><td>' . $elapsed . '</td></tr>';
     }
     ?>
-</table>
+    <?php
+    $page = $_GET['page']??1;
+    $limit = 10;
+    $offset = ($page -1) * $limit;
+    $automobiliai = [];
+    $dbh = new PDO('mysql:host=localhost;dbname=Auto', 'root', 'root');
+    foreach($dbh->query('SELECT * from Radars order by `date` desc limit 10 offset ' . $offset)->fetchALL(PDO::FETCH_NAMED) as $row) {
+    $automobiliai[] = $row;
+    }
+    $dbh = null;
+    foreach ($automobiliai as $auto) {
+        echo $auto['date'].$auto['time'].$auto['number'].$auto['distance'].$auto['elapsed'].'<br>';
+    }
+    ?>
 </body>
 </html>
+// Hello
+// Hello
