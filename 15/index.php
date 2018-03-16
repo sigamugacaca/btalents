@@ -8,11 +8,15 @@ if (isset($_GET['edit'])) {
 
     if (count($record) == 1 ) {
         $n = mysqli_fetch_array($record);
+        if (empty($n)) {
+            die('Data Not Found');
+        }
         $date = $n['date'];
         $time = $n['time'];
         $licence = $n['licence'];
         $distance = $n['distance'];
         $elapsed = $n['elapsed'];
+        $speed = $n['speed'];
     }
 }
 ?>
@@ -23,6 +27,8 @@ if (isset($_GET['edit'])) {
         <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<img class="retro" src="https://images.cdn.circlesix.co/image/uploads/posts/2016/10/9b50b24f409eaac78466bc7537ba65c4.gif" width="290" height="170">
+<h2 class="headline">AUTO (Create, Update, Delete, View)!</h2>
 <?php if (isset($_SESSION['message'])): ?>
     <div class="msg">
         <?php
@@ -31,7 +37,11 @@ if (isset($_GET['edit'])) {
         ?>
     </div>
 <?php endif ?>
-<?php $results = mysqli_query($db, "SELECT * FROM info"); ?>
+<?php
+if (empty($results)) {
+    $results = mysqli_query($db, "SELECT * FROM info");
+}
+?>
 
 <table>
     <thead>
@@ -41,6 +51,7 @@ if (isset($_GET['edit'])) {
         <th>Licence</th>
         <th>Distance</th>
         <th>Elapsed</th>
+        <th>Top Speed</th>
         <th colspan="2">Action</th>
     </tr>
     </thead>
@@ -52,6 +63,7 @@ if (isset($_GET['edit'])) {
             <td><?php echo $row['licence']; ?></td>
             <td><?php echo $row['distance']; ?></td>
             <td><?php echo $row['elapsed']; ?></td>
+            <td><?php echo $row['speed']; ?></td>
             <td>
                 <a href="index.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
             </td>
@@ -63,33 +75,50 @@ if (isset($_GET['edit'])) {
 </table>
     <form method="post" action="php_code.php">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
+
         <div class=""input-group">
-            <label>Date</label>
+            <label>Date:</label>
         <input type="date" name="date" value="<?php echo $date; ?>">
         </div>
+
         <div class=""input-group">
-            <label>Time</label>
+            <label>Time:</label>
         <input type="text" name="time" value="<?php echo $time; ?>">
         </div>
+
         <div class=""input-group">
-            <label>Licence Plate</label>
+            <label>Licence Plate:</label>
         <input type="text" name="licence" value="<?php echo $licence; ?>">
         </div>
+
         <div class=""input-group">
-            <label>Distance Travelled</label>
+            <label>Distance Travelled:</label>
         <input type="text" name="distance" value="<?php echo $distance; ?>">
         </div>
+
         <div class=""input-group">
-            <label>Time Elapsed</label>
+            <label>Time Elapsed:</label>
         <input type="text" name="elapsed" value="<?php echo $elapsed; ?>">
         </div>
+
+        <div class=""input-group">
+        <label>Top Speed</label>
+        <input type="text" name="speed" value="<?php echo $speed; ?>">
+        </div>
+
         <div class="input-group">
             <?php if ($update == true): ?>
-                <button class="btn" type="submit" name="update" style="background: ;" >update</button>
+                <button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
             <?php else: ?>
                 <button class="btn" type="submit" name="save" >Save</button>
             <?php endif ?>
         </div>
     </form>
+    <form method="get" action="index.php">
+        <label>Search!</label>
+        <input type="text" name="query" />
+    </form>
+
+
 </body>
 </html>

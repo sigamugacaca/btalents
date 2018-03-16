@@ -1,5 +1,6 @@
 body {
-    font-size: 19px;
+    font-size: 22px;
+    background-color: orange;
 }
 table{
     width: 50%;
@@ -8,7 +9,7 @@ table{
     text-align: left;
 }
 tr {
-    border-bottom: 1px solid #cbcbcb;
+    border-bottom: 2px solid black;
 }
 th, td{
     border: none;
@@ -24,7 +25,7 @@ form {
     margin: 50px auto;
     text-align: left;
     padding: 20px;
-    border: 1px solid #bbbbbb;
+    border: 2px solid black;
     border-radius: 5px;
 }
 
@@ -42,7 +43,7 @@ form {
     padding: 5px 10px;
     font-size: 16px;
     border-radius: 5px;
-    border: 1px solid gray;
+    border: 1px solid black;
 }
 .btn {
     padding: 10px;
@@ -76,4 +77,15 @@ form {
     border: 1px solid #3c763d;
     width: 50%;
     text-align: center;
-}}
+}
+.headline {
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+.retro {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
